@@ -1,4 +1,5 @@
-<?php include './header.php';?>
+<?php include './header.php';
+?>
 
     <!-- Page Content -->
     <div class="container">
@@ -21,8 +22,6 @@
             <a href="#" class="list-group-item">Editorial</a>
           </div>
         </div>
-
-
 
         <!-- /.col-lg-3 -->
         <div class="col-lg-10">
@@ -90,4 +89,5 @@
     </div>
     <!-- /.container -->
 
-<?php include './php/headerAndFooter/footer.php';?>
+<?php include './php/headerAndFooter/footer.php';
+?>

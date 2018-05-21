@@ -17,12 +17,12 @@
     <link href="css/shop-homepage.css" rel="stylesheet">
 
     <?php
-      $con = mysqli_connect('127.0.0.1','admin','admin','libreria');
+      $con= mysqli_connect('127.0.0.1 ', 'root', 'root', 'libreria');
       // Check connection
       if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
       }else{
-        echo "CONNECION ESTABLECIDA"
+        echo "CONNECION ESTABLECIDA";
       }
     ?>
   </head>
