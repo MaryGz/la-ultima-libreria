@@ -127,11 +127,15 @@ include './headerAndFooter/header.php';
           $name = $_POST['name'];
           $paterno = $_POST['paterno'];
 
-          $conn = mysqli_connect('127.0.0.1','admin','admin','libreria');
-          // Check connection
-          if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-          }
+          $host="localhost";
+          $port=3306;
+          $socket="";
+          $user="admin";
+          $password="admin";
+          $dbname="libreria";
+
+          $conn = new mysqli($host, $user, $password, $dbname, $port, $socket)
+           or die ('Could not connect to the database server' . mysqli_connect_error());
 
           //Selecting Database
           $query = mysqli_query($conn, "SELECT * FROM clientes WHERE username='".$user."'");
