@@ -52,17 +52,17 @@ include './headerAndFooter/header.php';
             <br>
             <!-- User -->
             <div class="form-group">
-              <label class="control-label col-sm-2">Email:</label>
+              <label class="control-label col-sm-2">Nombre de usuario:</label>
               <div class="col-sm-12">
                 <!--<input type="email" name="user" class="form-control" id="email" placeholder="Enter email">-->
-                <input type="text" name="user" class="form-control" id="email" placeholder="Enter username">
+                <input type="text" name="user" class="form-control" id="email" placeholder="Inserte su nombre de usuario">
               </div>
             </div>
             <!-- Password -->
             <div class="form-group">
-              <label class="control-label col-sm-2">Password:</label>
+              <label class="control-label col-sm-2">Contraseña:</label>
               <div class="col-sm-12">
-                <input type="password" name="pass" class="form-control" id="pwd" placeholder="Enter password">
+                <input type="password" name="pass" class="form-control" id="pwd" placeholder="Inserte su contraseña">
               </div>
             </div>
 

@@ -2,7 +2,7 @@
 <?
   session_start();
 ?>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,17 +11,27 @@
 
     <title>La Última Librería</title>
     <!-- Bootstrap core CSS -->
-    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
-    <link href="./css/shop-homepage.css" rel="stylesheet">
+    <link href="css/shop-homepage.css" rel="stylesheet">
 
     <?php
-      $con = mysqli_connect('127.0.0.1','admin','admin','libreria');
-      // Check connection
-      if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
+      $host="localhost";
+      $port=3306;
+      $socket="";
+      $user="admin";
+      $password="admin";
+      $dbname="libreria";
+
+      $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+       or die ('Could not connect to the database server' . mysqli_connect_error());
+
+//$con->close();
+
+
     ?>
+
   </head>
 
   <body>
@@ -41,6 +51,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"> Libros</a>
+            </li>
 
             <?php
             session_start();
@@ -50,11 +61,11 @@
               echo "</li>";
 
               echo "<li class='nav-item'>";
-                echo "<a class='nav-link' href='./php/logout.php'>Logout</a>";
+                echo "<a class='nav-link' href='./php/logout.php'>Cerrar sesión</a>";
               echo "</li>";
             }else{
               echo "<li class='nav-item'>";
-                echo "<a class='nav-link' href='./php/login.php'>|&nbsp &nbsp Login</a>";
+                echo "<a class='nav-link' href='./php/login.php'>|&nbsp &nbsp Iniciar sesión</a>";
               echo "</li>";
             }
             ?>

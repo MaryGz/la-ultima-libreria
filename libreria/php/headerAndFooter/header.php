@@ -13,11 +13,22 @@
     <link href="../css/shop-homepage.css" rel="stylesheet">
 
     <?php
-      $con = mysqli_connect('127.0.0.1','admin','admin','libreria');
+      $host="localhost";
+      $port=3306;
+      $socket="";
+      $user="admin";
+      $password="admin";
+      $dbname="libreria";
+
+      $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+	     or die ('Could not connect to the database server' . mysqli_connect_error());
+
+//$con->close();
+
       // Check connection
-      if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
+      //if (mysqli_connect_errno()) {
+      //  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      //}
     ?>
   </head>
 
@@ -48,11 +59,11 @@
               echo "</li>";
 
               echo "<li class='nav-item'>";
-                echo "<a class='nav-link' href='./logout.php'>Logout</a>";
+                echo "<a class='nav-link' href='./logout.php'>Cerrar Sesión</a>";
               echo "</li>";
             }else{
               echo "<li class='nav-item'>";
-                echo "<a class='nav-link' href='./login.php'>|&nbsp &nbsp Login</a>";
+                echo "<a class='nav-link' href='./login.php'>|&nbsp &nbsp Iniciar Sesión</a>";
               echo "</li>";
             }
             ?>

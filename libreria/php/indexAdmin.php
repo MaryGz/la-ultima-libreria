@@ -1,7 +1,7 @@
-<?php include './header.php';
+<?php include './php/adminHeader.php';
 ?>
 
-    <!-- Page Content -->
+<!-- Page Content -->
     <div class="container">
 
       <div class="row">
