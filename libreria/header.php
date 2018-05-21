@@ -17,14 +17,21 @@
     <link href="css/shop-homepage.css" rel="stylesheet">
 
     <?php
-      $con= mysqli_connect('127.0.0.1 ', 'root', 'root', 'libreria');
-      // Check connection
-      if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }else{
-        echo "CONNECION ESTABLECIDA";
-      }
+      $host="localhost";
+      $port=3306;
+      $socket="";
+      $user="admin";
+      $password="admin";
+      $dbname="libreria";
+
+      $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+       or die ('Could not connect to the database server' . mysqli_connect_error());
+
+//$con->close();
+
+
     ?>
+
   </head>
 
   <body>

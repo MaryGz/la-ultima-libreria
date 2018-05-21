@@ -41,7 +41,7 @@
 
           <div class="row">
             <?PHP
-              $result = mysqli_query($con,"SELECT * FROM libros ORDER BY titulo");
+              $result = mysqli_query($con,"SELECT * FROM libros ORDER BY id_editorial");
 
               echo "<h1>aloooh</h1>";
 
