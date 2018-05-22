@@ -1,7 +1,4 @@
-<?php
-include './headerAndFooter/header.php';
-
-?>
+<?php include './headerAndFooter/header.php';?>
 
     <div class="container">
       <!-- Page Heading -->
@@ -48,7 +45,7 @@ include './headerAndFooter/header.php';
             <div class="form-group">
               <label class="control-label col-sm-2">Teléfono:</label>
               <div class="col-sm-12">
-                <input type="number" name="phone" class="form-control"  placeholder="Inserta tu teléfono (solo los números)">
+                <input type="text" name="phone" class="form-control"  placeholder="Inserta tu teléfono (solo los números)">
               </div>
             </div>
 
@@ -80,7 +77,7 @@ include './headerAndFooter/header.php';
             <div class="form-group">
               <label class="control-label col-sm-2">Tarjeta de crédito:</label>
               <div class="col-sm-12">
-                <input type="number" name="tarjeta" class="form-control"  placeholder="Inserta tu tarjeta de crédito">
+                <input type="text" name="tarjeta" class="form-control"  placeholder="Inserta tu tarjeta de crédito">
               </div>
             </div>
 
@@ -127,30 +124,24 @@ include './headerAndFooter/header.php';
           $name = $_POST['name'];
           $paterno = $_POST['paterno'];
 
-          $host="localhost";
-          $port=3306;
-          $socket="";
-          $user="admin";
-          $password="admin";
-          $dbname="libreria";
 
-          $conn = new mysqli($host, $user, $password, $dbname, $port, $socket)
-           or die ('Could not connect to the database server' . mysqli_connect_error());
 
           //Selecting Database
-          $query = mysqli_query($conn, "SELECT * FROM clientes WHERE username='".$user."'");
+          $query = mysqli_query($con, "SELECT * FROM clientes WHERE username='".$user."'");
           $numrows = mysqli_num_rows($query);
 
             if($numrows == 0){
               //Insert to Mysqli Queryss')";
               //$sql = "INSERT INTO usuario VALUES ('$user', '$pass', $year, '$address', $postal, $cc)";
-              $sql = "INSERT INTO clientes VALUES ('$name','$paterno','$materno','$phone', '$email', $pass, '$tarjeta', $address, $user)";
-              $result = mysqli_query($conn, $sql);
+              $sql = "INSERT INTO clientes VALUES ('$name','$paterno','$materno','$phone', '$email', '$pass', '$tarjeta', '$address', '$user')";
+              $result = mysqli_query($con, $sql);
               //Result Message
               if($result){
                 echo "Tu cuenta ha sido creada";
               }else{
                 echo "Failure!";
+                printf("Error: %s\n", mysqli_error($con));
+                exit();
               }
             }else{
               echo "¡Ese nombre de usuario ya existe! Por favor intenta con otro.";

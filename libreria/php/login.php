@@ -1,6 +1,4 @@
-<?php
-include './headerAndFooter/header.php';
-?>
+<?php include './headerAndFooter/header.php';?>
 
     <div class="container">
       <!-- Page Heading -->
@@ -28,10 +26,12 @@ include './headerAndFooter/header.php';
                     //$dbpassword=$row['u_contrasena'];
                     $dbusername=$row['username'];
                     $dbpassword=$row['contrasenia'];
+                    $cliente_id=$row['username'];
                   }
                   if($user == $dbusername && $pass == $dbpassword){
                      session_start();
                      $_SESSION['sess_user']=$user;
+                     $_SESSION['sess_id_cliente']=$cliente_id;
                      //Redirect Browser
                      header("Location:../index.php");
                   }
@@ -71,6 +71,7 @@ include './headerAndFooter/header.php';
               <div class="col-sm-offset-2 col-sm-12">
                 <button type="submit" name="submit" class="btn btn-primary">Enviar</button> &nbsp &nbsp
                 <a href="./register.php" class="button">Registrarse</a>
+
               </div>
             </div>
           </form>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="María Gutérrez">
 
     <title>La Última Librería</title>
     <!-- Bootstrap core CSS -->
@@ -13,22 +13,20 @@
     <link href="../css/shop-homepage.css" rel="stylesheet">
 
     <?php
-      $host="localhost";
-      $port=3306;
-      $socket="";
-      $user="admin";
-      $password="admin";
-      $dbname="libreria";
+    $host="localhost";
 
-      $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-	     or die ('Could not connect to the database server' . mysqli_connect_error());
+    $user="admin";
+    $password="";
+    $dbname="libreria";
 
-//$con->close();
+      //$con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+      // or die ('Could not connect to the database server' . mysqli_connect_error());
 
-      // Check connection
-      //if (mysqli_connect_errno()) {
-      //  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      //}
+      $con = mysqli_connect($host, 'admin', 'admin', $dbname);
+
+      if (mysqli_connect_errno()){
+        echo mysqli_connect_error();
+      }
     ?>
   </head>
 
@@ -48,7 +46,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Libros</a>
+              <a class="nav-link" href="../index.php">Libros</a>
             </li>
 
             <?php
@@ -59,14 +57,15 @@
               echo "</li>";
 
               echo "<li class='nav-item'>";
-                echo "<a class='nav-link' href='./logout.php'>Cerrar Sesión</a>";
+                echo "<a class='nav-link' href='./logout.php'>Cerrar sesión</a>";
               echo "</li>";
             }else{
               echo "<li class='nav-item'>";
-                echo "<a class='nav-link' href='./login.php'>|&nbsp &nbsp Iniciar Sesión</a>";
+                echo "<a class='nav-link' href='./login.php'>|&nbsp &nbsp Iniciar sesión</a>";
               echo "</li>";
             }
             ?>
+
           </ul>
         </div>
       </div>
