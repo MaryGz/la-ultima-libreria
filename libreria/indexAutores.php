@@ -41,27 +41,25 @@
 
           <div class="row">
             <?PHP
-              $result = mysqli_query($con,"SELECT * FROM libros ORDER BY id_autor");
+            $result = mysqli_query($con,"SELECT id_libros, titulo, precio, idioma, anio, nombre, apellido_p, imagen FROM libros, autores WHERE libros.id_autor=autores.id_autor ORDER BY apellido_p");
 
-              echo "<h1>aloooh</h1>";
+            while($row = mysqli_fetch_array($result)) {
 
-              while($row = mysqli_fetch_array($result)) {
-                echo "<h1>HOLAAAAAA</h1>";
-                echo "<div class='col-lg-4 col-md-6 mb-4'>";
-                echo "<div class='card card text-center h-100 w-280'>";
-                echo "<form action='./php/product.php' method='post'>";
-                echo "<button type='submit' class='btn btn-link' name='id' value='{$row['id_libros']}'><img class='card-img-top' src='". $row['imagen'] ."' alt=''></button>";
-                echo "<div class='card-body'>";
-                echo "<h4 class='card-title'>";
-                echo "<input type='hidden' value='{$row['id_libros']}' name='id'></input>";
-                echo "<button type ='submit' class='btn btn-outline-primary btn-large'>";
-                echo "". $row['titulo'] ."</button></form></h4>";
-                echo "<h5>$". $row['precio'] ."</h5>";
-                echo "<p class='card-text'>". $row['idioma'] ."</p></div>";
-                echo "<div class='card-footer'>";
-                echo "<small class='text-muted'>".$row['id_editorial']." - ".$row['anio']."</small>";
-                echo "</div></div></div>";
-              }
+              echo "<div class='col-lg-4 col-md-6 mb-4'>";
+              echo "<div class='card card text-center h-100 w-280'>";
+              echo "<form action='./php/product.php' method='post'>";
+              echo "<button type='submit' class='btn btn-link' name='id' value='{$row['id_libros']}'><img class='card-img-top' src='./img/portadas/". $row['imagen'] ."' alt=''></button>";
+              echo "<div class='card-body'>";
+              echo "<h4 class='card-title'>";
+              echo "<input type='hidden' value='{$row['id_libros']}' name='id'></input>";
+              echo "<button type ='submit' class='btn btn-outline-primary btn-large'>";
+              echo "". $row['titulo'] ."</button></form></h4>";
+              echo "<h5>$". $row['precio'] ."</h5>";
+              echo "<p class='card-text'>". $row['nombre'] ." ". $row['apellido_p'] ."</p></div>";
+              echo "<div class='card-footer'>";
+              echo "<small class='text-muted'>".$row['idioma']." - ".$row['anio']."</small>";
+              echo "</div></div></div>";
+            }
             ?>
 
 

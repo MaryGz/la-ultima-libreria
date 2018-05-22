@@ -17,15 +17,20 @@
     <link href="css/shop-homepage.css" rel="stylesheet">
 
     <?php
-      $host="localhost";
-      $port=3306;
-      $socket="";
-      $user="admin";
-      $password="admin";
-      $dbname="libreria";
+    $host="localhost";
 
-      $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-       or die ('Could not connect to the database server' . mysqli_connect_error());
+    $user="admin";
+    $password="";
+    $dbname="libreria";
+
+      //$con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+      // or die ('Could not connect to the database server' . mysqli_connect_error());
+
+      $con = mysqli_connect($host, 'admin', 'admin', $dbname);
+
+      if (mysqli_connect_errno()){
+        echo mysqli_connect_error();
+      }
 
 //$con->close();
 
@@ -38,7 +43,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.php">La Última Librería</a>
+        <img src="./img/logoLibreria.png" href="index.php" height="40px">
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,7 +56,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Libros</a>
+              <a class="nav-link" href="index.php"> Libros</a>
             </li>
 
             <?php
